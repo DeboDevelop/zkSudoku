@@ -3,3 +3,10 @@ sudoku_cpp
 sudoku_js
 *.r1cs
 *.sym
+parameters.txt
+proof.json
+public.json
+sudoku_*.zkey
+sudokuVerifier.sol
+verification_key.json
+ptau
