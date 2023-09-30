@@ -9,4 +9,7 @@ if [ "$1" ]; then
 fi
 
 # Compile the circuit
-circom ${CIRCUIT}.circom --r1cs --wasm --sym --c
+circom ${CIRCUIT}.circom --r1cs --wasm --sym
+
+# Generate the witness.wtns
+node ${CIRCUIT}_js/generate_witness.js ${CIRCUIT}_js/${CIRCUIT}.wasm input.json ${CIRCUIT}_js/witness.wtns
