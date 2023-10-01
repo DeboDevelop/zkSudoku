@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
     "circomlib": "^2.0.5"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "circom_tester": "^0.0.19",
+    "mocha": "^10.2.0"
   }
 }
