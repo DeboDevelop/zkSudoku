@@ -7,6 +7,6 @@ parameters.txt
 proof.json
 public.json
 sudoku_*.zkey
-sudokuVerifier.sol
+src/circuit/Groth16/sudokuVerifier.sol
 verification_key.json
 ptau
