@@ -28,4 +28,14 @@ module.exports = {
       },
     },
   },
+  networks: {
+    goerli: {
+      url: process.env.RPC_GOERLI_ENDPOINT,
+      accounts: [process.env.PRIVATE_KEY],
+    },
+    mumbai: {
+      url: process.env.RPC_POLYGON_MUMBAI_ENDPOINT,
+      accounts: [process.env.PRIVATE_KEY],
+    },
+  },
 };
