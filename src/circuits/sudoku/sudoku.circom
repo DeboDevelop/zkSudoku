@@ -3,7 +3,7 @@ pragma circom 2.0.0;
 include "../node_modules/circomlib/circuits/comparators.circom";
 
 template Sudoku() {
-    signal input unSolved[9][9];
+    signal input unsolved[9][9];
     signal input solved[9][9];
 
     // Check if each cell of the solved sudoku are >=1 and <=9
@@ -36,12 +36,12 @@ template Sudoku() {
             // If isSolved[i][j] is 0, it means that solved [i][j] is not equal unsolved[i][j]
             isSolved[i][j] = IsEqual();
             isSolved[i][j].in[0] <== solved[i][j];
-            isSolved[i][j].in[1] <== unSolved[i][j];
+            isSolved[i][j].in[1] <== unsolved[i][j];
 
             // If IsZero[i][j] is not 0, it means that unsolved[i][j] is equal to 0
             // If IsZero[i][j] is 0, it means that unsolved[i][j] is not equal to 0
             isEmpty[i][j] = IsZero();
-            isEmpty[i][j].in <== unSolved[i][j];
+            isEmpty[i][j].in <== unsolved[i][j];
 
             // Therefore, if isSolved[i][j] is 1, then isEmpty[i][j] is 0. Thus, 1 === 1 - 0
             // if isSolved[i][j] is 0, then isEmpty[i][j] is 1. Thus 0 === 1 - 1
@@ -119,5 +119,5 @@ template Sudoku() {
     }
 }
 
-// unSolved is a public input signal.
-component main {public [unSolved]} = Sudoku();
+// unsolved is a public input signal.
+component main {public [unsolved]} = Sudoku();

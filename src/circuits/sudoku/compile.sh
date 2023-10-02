@@ -6,7 +6,7 @@ CIRCUIT=sudoku
 # Variable to store the number of the ptau file
 PTAU=14
 
-# In case there is a circuit name as input
+# In case there is a circuit name as an input
 if [ "$1" ]; then
     CIRCUIT=$1
 fi
@@ -25,7 +25,7 @@ else
 fi
 
 # Compile the circuit
-circom ${CIRCUIT}.circom --r1cs --wasm --sym
+circom ${CIRCUIT}.circom --r1cs --wasm --sym --c
 
 # Generate the witness.wtns
 node ${CIRCUIT}_js/generate_witness.js ${CIRCUIT}_js/${CIRCUIT}.wasm input.json ${CIRCUIT}_js/witness.wtns
@@ -56,7 +56,7 @@ snarkjs zkey export solidityverifier ${CIRCUIT}_final.zkey ${CIRCUIT}Verifier.so
 # Update the solidity version in the Solidity verifier
 sed -i 's/0.6.11;/0.8.4;/g' ${CIRCUIT}Verifier.sol
 # Update the contract name in the Solidity verifier
-sed -i "s/contract Verifier/contract ${CIRCUIT^}Verifier/g" ${CIRCUIT}Verifier.sol
+sed -i "s/contract Groth16Verifier/contract ${CIRCUIT^}Verifier/g" ${CIRCUIT}Verifier.sol
 
 echo "----- Generate and print parameters of call -----"
 # Generate and print parameters of call
